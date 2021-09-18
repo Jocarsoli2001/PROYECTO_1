@@ -2484,9 +2484,17 @@ ENDM
 
  REINICIAR_TMR0 MACRO
     BANKSEL PORTD
-    MOVLW 254 ; Timer 0 reinicia cada 2 ms
+    MOVLW 240 ; Timer 0 reinicia cada 2 ms
     MOVWF TMR0 ; Mover este valor al timer 0
     BCF ((INTCON) and 07Fh), 2 ; Limpiar la bandera del Timer 0
+    ENDM
+
+ REINICIAR_TMR2 MACRO
+    BANKSEL TRISB
+    MOVLW 122
+    MOVWF PR2
+    CLRF TMR2
+    BCF ((PIR1) and 07Fh), 1
     ENDM
 
 ;Variables a utilizar
@@ -2515,6 +2523,7 @@ ENDM
     DECE_MIN: DS 1
     UNI_HOR: DS 1
     DECE_HOR: DS 1
+    CONT: DS 1
 
  PSECT udata_shr ; common memory
     W_TEMP: DS 1 ; 1 byte
@@ -2538,11 +2547,10 @@ ENDM
     MOVWF STATUS_TEMP
 
  ISR:
-    BTFSC ((PIR1) and 07Fh), 1
-    CALL CONTADORES_HORA
-
     BTFSC ((INTCON) and 07Fh), 2
     CALL INT_TMR0
+
+    CALL CONTADORES_HORA
 
  POP:
     SWAPF STATUS_TEMP, W
@@ -2553,8 +2561,14 @@ ENDM
 
  ;------------Sub rutinas de interrupción--------------
  CONTADORES_HORA:
-    BCF ((PIR1) and 07Fh), 1
-    INCF CONT_UNI ;INCREMENTAR EL CONTADOR GENERAL DE UNIDADES
+    REINICIAR_TMR0
+    INCF CONT ; Incrementar la variable CONT
+    MOVF CONT, W ; Mover el valor de CONT a W
+    SUBLW 61 ; Multiplicar el valor de 20 ms por 50
+    BTFSS ((STATUS) and 07Fh), 2 ; Chequear si el valor es 0
+    GOTO RETURN_T0
+    CLRF CONT ; Limpiar el CONT
+    INCF CONT_UNI
 
     MOVF CONT_UNI, W ; W = CONT_UNI
     SUBLW 60 ; 60 - CONT_UNI
@@ -2581,23 +2595,25 @@ ENDM
     BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
     CALL REINICIO
 
-    ;TRADUCCIÓN A DISPLAY DE 7 SEGMENTOS
-    MOVF CONT_UNI_MIN, W
+    MOVWF CONT_UNI_MIN, W
     CALL TABLA
-    MOVWF UNI_MIN
+    MOVWF UNO
 
-    MOVF CONT_DECE_MIN, W
+    MOVWF CONT_DECE_MIN, W
     CALL TABLA
-    MOVWF DECE_MIN
+    MOVWF DIEZ
 
-    MOVF CONT_UNI_HOR, W
+    MOVWF CONT_UNI_HOR, W
     CALL TABLA
-    MOVWF UNI_HOR
+    MOVWF CIEN
 
-    MOVF CONT_DECE_HOR, W
+    MOVWF CONT_DECE_HOR, W
     CALL TABLA
-    MOVWF DECE_HOR
+    MOVWF MIL
 
+    RETURN
+
+ RETURN_T0:
     RETURN
 
  RESET_PORT:
@@ -2634,7 +2650,6 @@ ENDM
     BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
     CALL RESET_PORT
     RETURN
-
 
  INT_TMR0:
     REINICIAR_TMR0
@@ -2749,13 +2764,13 @@ ENDM
  LOOP:
     BTFSC PORTB, 0
     CALL ANTIREBOTE
+
     GOTO LOOP
 
  ;---------------SUBRUTINAS------------------
  ;-----------------------------------------
  ; LÓGICA DE CONTADORES DE HORA
  ;-----------------------------------------
-
 
  ;-----------------------------------------
  ; STATUS DE MODO
@@ -2825,12 +2840,7 @@ ENDM
 
     BSF ((T2CON) and 07Fh), 1
     BSF ((T2CON) and 07Fh), 0 ;PRESCALER = 16
-
-    BANKSEL TRISB
-    MOVLW 122
-    MOVWF PR2
-    CLRF TMR2
-    BCF ((PIR1) and 07Fh), 1
+    REINICIAR_TMR2
 
     RETURN
 
