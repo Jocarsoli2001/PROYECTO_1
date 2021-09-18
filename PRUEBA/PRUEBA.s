@@ -74,7 +74,14 @@ PROCESSOR 16F887
     DECE_MIN:		    DS 1
     UNI_HOR:		    DS 1
     DECE_HOR:		    DS 1
+    UNI_DIA:		    DS 1
+    DECE_DIA:		    DS 1
+    UNI_MES:		    DS 1
+    DECE_MES:		    DS 1
     CONT:		    DS 1
+    CONT_DIA_GENERAL:	    DS 1
+    CONT_MES_GENERAL:	    DS 1
+    TOPE_DIAS:		    DS 1
   
  PSECT udata_shr	; common memory
     W_TEMP:		    DS 1	; 1 byte
@@ -111,14 +118,93 @@ PROCESSOR 16F887
     RETFIE
    
  ;------------Sub rutinas de interrupción--------------
+ CONTADORES_FECHA:
+    INCF	CONT_UNI_DIA
+    INCF	CONT_DIA_GENERAL
+    
+    MOVF	CONT_UNI_DIA, W		    ; W = CONT_UNI 
+    SUBLW	10			    ; 60 - CONT_UNI
+    BTFSC	STATUS, 2		    ; IF (60-CONT_UNI = 0)
+    CALL	INCREMENTO_DECE_DIA	    ; ENTONCES CALL INCREMENTO_DEC
+    
+    MOVWF	CONT_UNI_DIA
+    CALL	TABLA
+    MOVWF	UNI_DIA
+    
+    MOVWF	CONT_DECE_DIA
+    CALL	TABLA
+    MOVWF	DECE_DIA
+    
+    MOVWF	CONT_UNI_MES
+    CALL	TABLA
+    MOVWF	UNI_MES
+    
+    MOVWF	CONT_DECE_MES
+    CALL	TABLA
+    MOVWF	DECE_MES
+    
+    RETURN
+    
+ INCREMENTO_DECE_DIA:
+    INCF	CONT_DECE_DIA
+    CLRF	CONT_UNI_DIA
+    
+    MOVWF	CONT_MES_GENERAL
+    CALL	TABLA_FECHA
+    MOVWF	TOPE_DIAS
+    
+    MOVF	CONT_DIA_GENERAL, W
+    SUBWF	TOPE_DIAS
+    BTFSC	STATUS, 2
+    CALL	INCREMENTO_UNI_MES
+    RETURN
+ 
+ INCREMENTO_UNI_MES:
+    INCF	CONT_MES_GENERAL
+    INCF	CONT_UNI_MES
+    CLRF	CONT_UNI_DIA
+    CLRF	CONT_DECE_DIA
+    
+    MOVF	CONT_UNI_MES, W
+    SUBLW	10			    ; 60 - CONT_UNI
+    BTFSC	STATUS, 2		    ; IF (60-CONT_UNI = 0)
+    CALL	INCREMENTO_DECE_MES	    ; ENTONCES CALL INCREMENTO_DEC
+    RETURN
+    
+ INCREMENTO_DECE_MES:
+    INCF	CONT_DECE_MES
+    CLRF	CONT_UNI_MES
+    
+    MOVF	CONT_DECE_MES
+    SUBLW	1
+    BTFSC	STATUS, 2
+    CALL	TOPE_MES
+    RETURN
+ 
+ TOPE_MES:
+    MOVF	CONT_UNI_MES, W
+    SUBLW	3
+    BTFSC	STATUS, 2
+    CALL	REINICIO_FECHA
+    
+    RETURN
+    
+ REINICIO_FECHA:
+    CLRF	CONT_UNI_DIA
+    CLRF	CONT_DECE_DIA
+    CLRF	CONT_DECE_MES
+    MOVLW	1
+    MOVWF	CONT_UNI_MES
+    RETURN
+ 
  CONTADORES_HORA:
     REINICIAR_TMR0
-    INCF	CONT		    ; Incrementar la variable CONT
-    MOVF	CONT, W		    ; Mover el valor de CONT a W
-    SUBLW	61		    ; Multiplicar el valor de 20 ms por 50
-    BTFSS	ZERO		    ; Chequear si el valor es 0
+    INCF	CONT			    ; Incrementar la variable CONT
+    MOVF	CONT, W			    ; Mover el valor de CONT a W
+    SUBLW	61			    ; Multiplicar el valor de 20 ms por 50
+    BTFSS	ZERO			    ; Chequear si el valor es 0
     GOTO	RETURN_T0	    
-    CLRF	CONT		    ; Limpiar el CONT	
+    CLRF	CONT			    ; Limpiar el CONT	
     INCF	CONT_UNI
     
     MOVF	CONT_UNI, W		    ; W = CONT_UNI 
@@ -146,22 +232,6 @@ PROCESSOR 16F887
     BTFSC	STATUS, 2		    ; IF (10-CONT_DECE = 0)
     CALL    	REINICIO
     
-    MOVWF	CONT_UNI_MIN, W
-    CALL	TABLA
-    MOVWF	UNO
-    
-    MOVWF	CONT_DECE_MIN, W
-    CALL	TABLA
-    MOVWF	DIEZ
-    
-    MOVWF	CONT_UNI_HOR, W
-    CALL	TABLA
-    MOVWF	CIEN
-    
-    MOVWF	CONT_DECE_HOR, W
-    CALL	TABLA
-    MOVWF	MIL
-    
     RETURN
     
  RETURN_T0:
@@ -173,6 +243,7 @@ PROCESSOR 16F887
     CLRF	CONT_DECE_MIN
     CLRF	CONT_UNI_HOR
     CLRF	CONT_DECE_HOR
+    CALL	CONTADORES_FECHA
     RETURN
     
  INCREMENTO_UNI_MIN:
@@ -276,6 +347,25 @@ PROCESSOR 16F887
  ORG 100H		;Posición para el codigo
  
  ;-------------Tabla números--------------------------
+ TABLA_FECHA:
+    CLRF	PCLATH
+    BSF		PCLATH, 0   ;PCLATH = 01    PCL = 02
+    ANDLW	0x0f
+    ADDWF	PCL	    ;PC = PCLATH + PCL + W
+    
+    ;Verificar el límite de días dependiendo de cada mes
+    RETLW	32	    ;ENERO
+    RETLW	29	    ;FEBRERO
+    RETLW	32	    ;MARZO
+    RETLW	31	    ;ABRIL
+    RETLW	32	    ;MAYO
+    RETLW	31	    ;JUNIO
+    RETLW	32	    ;JULIO
+    RETLW	32	    ;AGOSTO
+    RETLW	31	    ;SEPTIEMBRE
+    RETLW	32	    ;OCTUBRE
+    RETLW	31	    ;NOVIEMBRE
+    RETLW	32	    ;DICIEMBRE
  
  TABLA:
     CLRF	PCLATH
@@ -315,6 +405,22 @@ PROCESSOR 16F887
  LOOP:
     BTFSC	PORTB, 0
     CALL	ANTIREBOTE
+    
+    MOVWF	CONT_UNI_MIN, W
+    CALL	TABLA
+    MOVWF	UNO
+    
+    MOVWF	CONT_DECE_MIN, W
+    CALL	TABLA
+    MOVWF	DIEZ
+    
+    MOVWF	CONT_UNI_HOR, W
+    CALL	TABLA
+    MOVWF	CIEN
+    
+    MOVWF	CONT_DECE_HOR, W
+    CALL	TABLA
+    MOVWF	MIL
     
     GOTO	LOOP
  
