@@ -2482,10 +2482,17 @@ ENDM
 ;-----------------------------------------
 ; MACROS
 ;-----------------------------------------
+ REINICIAR_TMR1 MACRO
+    MOVLW 248 ;TIMER1 HIGH = 133
+    MOVWF TMR1H
+    MOVLW 94 ;TIMER1 LOW = 163
+    MOVWF TMR1L
+    BCF ((PIR1) and 07Fh), 0
+    ENDM
 
  REINICIAR_TMR0 MACRO
     BANKSEL PORTD
-    MOVLW 230 ; Timer 0 reinicia cada 2 ms
+    MOVLW 225 ; Timer 0 reinicia cada 2 ms
     MOVWF TMR0 ; Mover este valor al timer 0
     BCF ((INTCON) and 07Fh), 2 ; Limpiar la bandera del Timer 0
     ENDM
@@ -2518,6 +2525,8 @@ ENDM
  PSECT udata_bank0 ; common memory
     STATUS_MODO: DS 1
     OLD_STATUS_MODO: DS 1
+    STATUS_SET: DS 1
+    OLD_STATUS_SET: DS 1
     UNO: DS 1
     DIEZ: DS 1
     CIEN: DS 1
@@ -2547,6 +2556,7 @@ ENDM
     LIMITE_DIAS: DS 1
     CONTEO: DS 1
     CONTEO1: DS 1
+    LUCES: DS 1
 
  PSECT udata_shr ; common memory
     W_TEMP: DS 1 ; 1 byte
@@ -2575,6 +2585,9 @@ ENDM
 
     BTFSC ((PIR1) and 07Fh), 1
     CALL CONTADORES_HORA
+
+    BTFSC ((PIR1) and 07Fh), 0
+    CALL LUCES_HORA
  POP:
     SWAPF STATUS_TEMP, W
     MOVWF STATUS
@@ -2583,14 +2596,23 @@ ENDM
     RETFIE
 
  ;------------Sub rutinas de interrupci?n--------------
- CONTADORES_HORA:
-    REINICIAR_TMR2 ; Limpiar el CONT
-    INCF SEGUNDOS
-    MOVLW 11
-    MOVWF MESES
+ LUCES_HORA:
+    REINICIAR_TMR1
+    BTFSC STATUS_MODO, 0
+    CALL INTERMITENCIA
+    RETURN
 
-    MOVLW 25
-    MOVWF DIAS
+ INTERMITENCIA:
+    INCF LUCES
+    MOVF LUCES, W
+    ANDLW 00000001B
+    MOVWF PORTC
+    RETURN
+
+ CONTADORES_HORA:
+    REINICIAR_TMR2
+    BTFSS STATUS_SET, 0
+    INCF SEGUNDOS
 
     MOVF SEGUNDOS, W
     SUBLW 60
@@ -2612,7 +2634,7 @@ ENDM
     MOVWF LIMITE_DIAS
 
     MOVF DIAS, W
-    SUBWF LIMITE_DIAS, W
+    SUBWF LIMITE_DIAS
     BTFSC STATUS, 2
     CALL INC_MES
 
@@ -2729,7 +2751,7 @@ ENDM
     ADDWF PCL ;PC = PCLATH + PCL + W
 
     ;Verificar el l?mite de d?as dependiendo de cada mes
-    RETLW 32 ;ENERO
+    RETLW 31 ;ENERO
     RETLW 29 ;FEBRERO
     RETLW 32 ;MARZO
     RETLW 31 ;ABRIL
@@ -2767,12 +2789,14 @@ ENDM
  ;-----------Configuraci?n----------------
  MAIN:
     BSF STATUS_MODO, 0 ;CONFIGURAR EL STATUS MODO EN 1
+    BCF STATUS_SET, 0 ;CONFIGURAR EL STATUS SET EN 1
     CALL RESET_DISP_SELECTOR ;REINICIAR EL DISPLAYS_SELECTOR
     CALL CONFIG_IO
     CALL CONFIG_RELOJ ;Configuraci?n del oscilador
     CALL CONFIG_TMR0 ;Configuraci?n del Timer 0
     CALL CONFIG_INT_ENABLE ;Configuraci?n de interrupciones
     CALL CONFIG_TMR2
+    CALL CONFIG_TMR1
     BANKSEL PORTA
     BANKSEL PORTD
 
@@ -2782,9 +2806,12 @@ ENDM
     CALL LIMITES_MESES_DIAS
 
     BTFSC PORTB, 0
-    CALL ANTIREBOTE
+    CALL ANTIREBOTE_MODO
 
     CALL CHECK_MODO
+
+    BTFSC PORTB, 1
+    CALL ANTIREBOTE_SET
     GOTO LOOP
 
  ;---------------SUBRUTINAS------------------
@@ -2823,7 +2850,7 @@ ENDM
     WDIV1 10,DECE1,UNI1
 
     MOVF MESES, W
-    WDIV1 10,MILE1,CEN1
+    WDIV1 10,CEN1,MILE1
 
     MOVF UNI1, W
     CALL TABLA
@@ -2841,10 +2868,32 @@ ENDM
     CALL TABLA
     MOVWF MILE_TEMP1
     RETURN
+
+ ;-----------------------------------------
+ ; STATUS DE SET
+ ;-----------------------------------------
+ ANTIREBOTE_SET:
+    BTFSC PORTB, 1
+    GOTO $-1
+    CALL FLIP_FLOP_SET
+    RETURN
+
+ FLIP_FLOP_SET:
+    MOVF STATUS_SET, W
+    MOVWF OLD_STATUS_SET
+
+    BTFSC OLD_STATUS_SET, 0
+    BCF STATUS_SET, 0
+
+    BTFSS OLD_STATUS_SET, 0
+    BSF STATUS_SET, 0
+
+    RETURN
+
  ;-----------------------------------------
  ; STATUS DE MODO
  ;-----------------------------------------
- ANTIREBOTE:
+ ANTIREBOTE_MODO:
     BTFSC PORTB, 0
     GOTO $-1
     CALL FLIP_FLOP_GENERAL
@@ -2901,8 +2950,10 @@ ENDM
     MOVF MILE_TEMP1, W
     MOVWF MIL
 
-    RETURN
+    BSF PORTC, 0
+    BSF PORTC, 1
 
+    RETURN
  ;-----------------------------------------
  ; CONFIGURACIONES GENERALES
  ;-----------------------------------------
@@ -2918,21 +2969,35 @@ ENDM
     BSF ((T2CON) and 07Fh), 1
     BSF ((T2CON) and 07Fh), 0 ;PRESCALER = 16
     BANKSEL TRISB
-    MOVLW 122
+    MOVLW 1
     MOVWF PR2
     CLRF TMR2
     REINICIAR_TMR2
     RETURN
 
+ CONFIG_TMR1:
+    BANKSEL PORTC
+    BCF ((T1CON) and 07Fh), 6 ;SIEMPRE CONTANDO
+    BSF ((T1CON) and 07Fh), 5 ;CONFIGURACIÓN DE PRESCALER
+    BSF ((T1CON) and 07Fh), 4 ;PRESCALER DE 1:8 - CADA 1 Hz
+    BCF ((T1CON) and 07Fh), 3 ;LOW POWER OSCILATOR OFF
+    BCF ((T1CON) and 07Fh), 1
+    BSF ((T1CON) and 07Fh), 0 ;ENCENDER EL TMR1
+
+    ;CARGAR LOS VALORES INICIALES
+    REINICIAR_TMR1
+    RETURN
 
  CONFIG_INT_ENABLE:
     BANKSEL TRISA
     BSF ((PIE1) and 07Fh), 1 ;INTERRUPCI?N TMR2
+    BSF ((PIE1) and 07Fh), 0 ;INTERRUPCIÓN TMR1
 
     BANKSEL PORTA
     BSF ((INTCON) and 07Fh), 5 ;HABILITAR TMR0
     BCF ((INTCON) and 07Fh), 2 ;BANDERA DE TMR0
 
+    BCF ((PIR1) and 07Fh), 0 ;BANDERA DE TMR1
     BCF ((PIR1) and 07Fh), 1 ;BANDERA DE TMR2
 
     BSF ((INTCON) and 07Fh), 6 ;INTERRUPCIONES PERIF?RICAS
@@ -2962,6 +3027,8 @@ ENDM
     CLRF TRISC
 
     BSF TRISB, 0 ;PORT B COMO ENTRADA
+    BSF TRISB, 1
+    BSF TRISB, 2
 
     BANKSEL PORTA
     CLRF PORTA
