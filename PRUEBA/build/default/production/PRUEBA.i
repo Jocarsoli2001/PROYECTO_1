@@ -2459,7 +2459,8 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.inc" 2 3
-# 14 "PRUEBA.s" 2
+# 13 "PRUEBA.s" 2
+
 
 ;configuration word 1
  CONFIG FOSC=INTRC_NOCLKOUT
@@ -2484,18 +2485,34 @@ ENDM
 
  REINICIAR_TMR0 MACRO
     BANKSEL PORTD
-    MOVLW 240 ; Timer 0 reinicia cada 2 ms
+    MOVLW 230 ; Timer 0 reinicia cada 2 ms
     MOVWF TMR0 ; Mover este valor al timer 0
     BCF ((INTCON) and 07Fh), 2 ; Limpiar la bandera del Timer 0
     ENDM
 
  REINICIAR_TMR2 MACRO
-    BANKSEL TRISB
-    MOVLW 122
-    MOVWF PR2
-    CLRF TMR2
+    BANKSEL PORTA
     BCF ((PIR1) and 07Fh), 1
     ENDM
+
+ WDIV1 MACRO DIVISOR,COCIENTE,RESIDUO ; Macro de divisor
+    MOVWF CONTEO ; El dividendo se encuentra en W, pasar w a conteo
+    CLRF CONTEO1 ; Limpiar la variable que est? sobre w
+
+    INCF CONTEO1 ; Aumentar conteo + 1
+    MOVLW DIVISOR ; Pasar la litera del divisor a w
+
+    SUBWF CONTEO, F ; Restar de w conteo, y guardarlo en conteo
+    BTFSC STATUS,0 ; Si carry 0, decrementar conteo+1
+    GOTO $-4
+
+    DECF CONTEO1, W
+    MOVWF COCIENTE
+
+    MOVLW DIVISOR
+    ADDWF CONTEO,W
+    MOVWF RESIDUO
+  endm
 
 ;Variables a utilizar
  PSECT udata_bank0 ; common memory
@@ -2510,27 +2527,26 @@ ENDM
     DECE: DS 1
     CEN: DS 1
     MILE: DS 1
-    CONT_UNI_MIN: DS 1
-    CONT_DECE_MIN: DS 1
-    CONT_UNI_HOR: DS 1
-    CONT_DECE_HOR: DS 1
-    CONT_UNI_DIA: DS 1
-    CONT_DECE_DIA: DS 1
-    CONT_UNI_MES: DS 1
-    CONT_DECE_MES: DS 1
-    CONT_UNI: DS 1
-    UNI_MIN: DS 1
-    DECE_MIN: DS 1
-    UNI_HOR: DS 1
-    DECE_HOR: DS 1
-    UNI_DIA: DS 1
-    DECE_DIA: DS 1
-    UNI_MES: DS 1
-    DECE_MES: DS 1
-    CONT: DS 1
-    CONT_DIA_GENERAL: DS 1
-    CONT_MES_GENERAL: DS 1
-    TOPE_DIAS: DS 1
+    UNI_TEMP: DS 1
+    DECE_TEMP: DS 1
+    CEN_TEMP: DS 1
+    MILE_TEMP: DS 1
+    UNI1: DS 1
+    DECE1: DS 1
+    CEN1: DS 1
+    MILE1: DS 1
+    UNI_TEMP1: DS 1
+    DECE_TEMP1: DS 1
+    CEN_TEMP1: DS 1
+    MILE_TEMP1: DS 1
+    SEGUNDOS: DS 1
+    MINUTOS: DS 1
+    HORAS: DS 1
+    DIAS: DS 1
+    MESES: DS 1
+    LIMITE_DIAS: DS 1
+    CONTEO: DS 1
+    CONTEO1: DS 1
 
  PSECT udata_shr ; common memory
     W_TEMP: DS 1 ; 1 byte
@@ -2539,14 +2555,14 @@ ENDM
 
  PSECT resVect, class=CODE, abs, delta=2
  ;------------vector reset-----------------
- ORG 00h ; posición 0000h para el reset
+ ORG 00h ; posici?n 0000h para el reset
  resetVec:
     PAGESEL MAIN
     goto MAIN
 
  PSECT intVect, class=CODE, abs, delta=2
  ;------------vector interrupciones-----------------
- ORG 04h ; posición 0000h para interrupciones
+ ORG 04h ; posici?n 0000h para interrupciones
 
  PUSH:
     MOVWF W_TEMP
@@ -2557,8 +2573,8 @@ ENDM
     BTFSC ((INTCON) and 07Fh), 2
     CALL INT_TMR0
 
+    BTFSC ((PIR1) and 07Fh), 1
     CALL CONTADORES_HORA
-
  POP:
     SWAPF STATUS_TEMP, W
     MOVWF STATUS
@@ -2566,160 +2582,70 @@ ENDM
     SWAPF W_TEMP, W
     RETFIE
 
- ;------------Sub rutinas de interrupción--------------
- CONTADORES_FECHA:
-    INCF CONT_UNI_DIA
-    INCF CONT_DIA_GENERAL
-
-    MOVF CONT_UNI_DIA, W ; W = CONT_UNI
-    SUBLW 10 ; 60 - CONT_UNI
-    BTFSC STATUS, 2 ; IF (60-CONT_UNI = 0)
-    CALL INCREMENTO_DECE_DIA ; ENTONCES CALL INCREMENTO_DEC
-
-    MOVWF CONT_UNI_DIA
-    CALL TABLA
-    MOVWF UNI_DIA
-
-    MOVWF CONT_DECE_DIA
-    CALL TABLA
-    MOVWF DECE_DIA
-
-    MOVWF CONT_UNI_MES
-    CALL TABLA
-    MOVWF UNI_MES
-
-    MOVWF CONT_DECE_MES
-    CALL TABLA
-    MOVWF DECE_MES
-
-    RETURN
-
- INCREMENTO_DECE_DIA:
-    INCF CONT_DECE_DIA
-    CLRF CONT_UNI_DIA
-
-    MOVWF CONT_MES_GENERAL
-    CALL TABLA_FECHA
-    MOVWF TOPE_DIAS
-
-    MOVF CONT_DIA_GENERAL, W
-    SUBWF TOPE_DIAS
-    BTFSC STATUS, 2
-    CALL INCREMENTO_UNI_MES
-    RETURN
-
- INCREMENTO_UNI_MES:
-    INCF CONT_MES_GENERAL
-    INCF CONT_UNI_MES
-    CLRF CONT_UNI_DIA
-    CLRF CONT_DECE_DIA
-
-    MOVF CONT_UNI_MES, W
-    SUBLW 10 ; 60 - CONT_UNI
-    BTFSC STATUS, 2 ; IF (60-CONT_UNI = 0)
-    CALL INCREMENTO_DECE_MES ; ENTONCES CALL INCREMENTO_DEC
-    RETURN
-
- INCREMENTO_DECE_MES:
-    INCF CONT_DECE_MES
-    CLRF CONT_UNI_MES
-
-    MOVF CONT_DECE_MES
-    SUBLW 1
-    BTFSC STATUS, 2
-    CALL TOPE_MES
-    RETURN
-
- TOPE_MES:
-    MOVF CONT_UNI_MES, W
-    SUBLW 3
-    BTFSC STATUS, 2
-    CALL REINICIO_FECHA
-
-    RETURN
-
- REINICIO_FECHA:
-    CLRF CONT_UNI_DIA
-    CLRF CONT_DECE_DIA
-    CLRF CONT_DECE_MES
-    MOVLW 1
-    MOVWF CONT_UNI_MES
-    RETURN
-
+ ;------------Sub rutinas de interrupci?n--------------
  CONTADORES_HORA:
-    REINICIAR_TMR0
-    INCF CONT ; Incrementar la variable CONT
-    MOVF CONT, W ; Mover el valor de CONT a W
-    SUBLW 61 ; Multiplicar el valor de 20 ms por 50
-    BTFSS ((STATUS) and 07Fh), 2 ; Chequear si el valor es 0
-    GOTO RETURN_T0
-    CLRF CONT ; Limpiar el CONT
-    INCF CONT_UNI
+    REINICIAR_TMR2 ; Limpiar el CONT
+    INCF SEGUNDOS
+    MOVLW 11
+    MOVWF MESES
 
-    MOVF CONT_UNI, W ; W = CONT_UNI
-    SUBLW 60 ; 60 - CONT_UNI
-    BTFSC STATUS, 2 ; IF (60-CONT_UNI = 0)
-    CALL INCREMENTO_UNI_MIN ; ENTONCES CALL INCREMENTO_DEC
+    MOVLW 25
+    MOVWF DIAS
 
-    MOVF CONT_UNI_MIN, W ; W = CONT_DECE
-    SUBLW 10 ; 10 - CONT_DECE
-    BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
-    CALL INCREMENTO_DECE_MIN ; ENTONCES CALL INCREMENTO_CEN
+    MOVF SEGUNDOS, W
+    SUBLW 60
+    BTFSC STATUS, 2
+    CALL INC_MINUTOS
 
-    MOVF CONT_DECE_MIN, W ; W = CONT_DECE
-    SUBLW 6 ; 10 - CONT_DECE
-    BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
-    CALL INCREMENTO_UNI_HOR ; ENTONCES CALL INCREMENTO_CEN
+    MOVF MINUTOS, W
+    SUBLW 60
+    BTFSC STATUS, 2
+    CALL INC_HORAS
 
-    MOVF CONT_UNI_HOR, W ; W = CONT_DECE
-    SUBLW 10 ; 10 - CONT_DECE
-    BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
-    CALL INCREMENTO_DECE_HOR
+    MOVF HORAS, W
+    SUBLW 24
+    BTFSC STATUS, 2
+    CALL INC_DIAS
 
-    MOVF CONT_DECE_HOR, W ; W = CONT_DECE
-    SUBLW 2 ; 10 - CONT_DECE
-    BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
+    MOVF MESES, W
+    CALL TABLA_FECHA
+    MOVWF LIMITE_DIAS
+
+    MOVF DIAS, W
+    SUBWF LIMITE_DIAS, W
+    BTFSC STATUS, 2
+    CALL INC_MES
+
+    MOVF MESES, W
+    SUBLW 13
+    BTFSC STATUS, 2
     CALL REINICIO
 
     RETURN
 
- RETURN_T0:
+ INC_MINUTOS:
+    INCF MINUTOS
+    CLRF SEGUNDOS
     RETURN
 
- RESET_PORT:
-    CLRF CONT_UNI
-    CLRF CONT_UNI_MIN
-    CLRF CONT_DECE_MIN
-    CLRF CONT_UNI_HOR
-    CLRF CONT_DECE_HOR
-    CALL CONTADORES_FECHA
+ INC_HORAS:
+    INCF HORAS
+    CLRF MINUTOS
     RETURN
 
- INCREMENTO_UNI_MIN:
-    INCF CONT_UNI_MIN
-    CLRF CONT_UNI
+ INC_DIAS:
+    INCF DIAS
+    CLRF HORAS
     RETURN
 
- INCREMENTO_DECE_MIN:
-    INCF CONT_DECE_MIN
-    CLRF CONT_UNI_MIN
-    RETURN
-
- INCREMENTO_UNI_HOR:
-    INCF CONT_UNI_HOR
-    CLRF CONT_DECE_MIN
-    RETURN
-
- INCREMENTO_DECE_HOR:
-    INCF CONT_DECE_HOR
-    CLRF CONT_UNI_HOR
+ INC_MES:
+    INCF MESES
+    CLRF DIAS
     RETURN
 
  REINICIO:
-    MOVF CONT_UNI_HOR, W ; W = CONT_DECE
-    SUBLW 4 ; 10 - CONT_DECE
-    BTFSC STATUS, 2 ; IF (10-CONT_DECE = 0)
-    CALL RESET_PORT
+    MOVLW 1
+    MOVWF MESES
     RETURN
 
  INT_TMR0:
@@ -2747,17 +2673,17 @@ ENDM
     BTFSC STATUS, 2
     CALL DISPLAY_CEN
 
-    ;REVISAR SI SE ESCRIBE EN EL DISPLAY DE CENTENAS (1000)
+    ;REVISAR SI SE ESCRIBE EN EL DISPLAY DE MILESIMAS (1000)
     MOVF DISP_SELECTOR, W
     SUBLW 8 ;Chequear si DISP_SELECTOR = 1000
     BTFSC STATUS, 2
     CALL DISPLAY_MIL
 
-    ;MOVER EL 1 EN DISP_SELECTOR 1 POSICIÓN A LA IZQUIERDA
+    ;MOVER EL 1 EN DISP_SELECTOR 1 POSICI?N A LA IZQUIERDA
     BCF STATUS, 0 ;Se limpia el bit de carry
-    RLF DISP_SELECTOR, 1 ;1 en DISP_SELECTOR se corre una posición a al izquierda
+    RLF DISP_SELECTOR, 1 ;1 en DISP_SELECTOR se corre una posici?n a al izquierda
 
-    ;REINICIAR DISP_SELECTOR SI EL VALOR SUPERÓ EL NÚMERO DE DISPLAYS
+    ;REINICIAR DISP_SELECTOR SI EL VALOR SUPER? EL N?MERO DE DISPLAYS
     MOVF DISP_SELECTOR, W
     SUBLW 16
     BTFSC STATUS, 2
@@ -2776,13 +2702,13 @@ ENDM
     RETURN
 
  DISPLAY_CEN:
-    MOVF CIEN, W ;W = CIEN
-    MOVWF PORTA ;PORTC = W
+    MOVF CIEN, W
+    MOVWF PORTA
     RETURN
 
  DISPLAY_MIL:
-    MOVF MIL, W ;W = MIL
-    MOVWF PORTA ;PORTC = W
+    MOVF MIL, W
+    MOVWF PORTA
     RETURN
 
  RESET_DISP_SELECTOR:
@@ -2791,18 +2717,18 @@ ENDM
     RETURN
 
 
- ;------------Posición del código---------------------
+ ;------------Posici?n del c?digo---------------------
  PSECT CODE, DELTA=2, ABS
- ORG 100H ;Posición para el codigo
+ ORG 100H ;Posici?n para el codigo
 
- ;-------------Tabla números--------------------------
+ ;-------------Tabla n?meros--------------------------
  TABLA_FECHA:
     CLRF PCLATH
     BSF PCLATH, 0 ;PCLATH = 01 PCL = 02
     ANDLW 0x0f
     ADDWF PCL ;PC = PCLATH + PCL + W
 
-    ;Verificar el límite de días dependiendo de cada mes
+    ;Verificar el l?mite de d?as dependiendo de cada mes
     RETLW 32 ;ENERO
     RETLW 29 ;FEBRERO
     RETLW 32 ;MARZO
@@ -2838,46 +2764,83 @@ ENDM
     RETLW 01111001B ;E
     RETLW 01110001B ;F
 
- ;-----------Configuración----------------
+ ;-----------Configuraci?n----------------
  MAIN:
     BSF STATUS_MODO, 0 ;CONFIGURAR EL STATUS MODO EN 1
     CALL RESET_DISP_SELECTOR ;REINICIAR EL DISPLAYS_SELECTOR
     CALL CONFIG_IO
-    CALL CONFIG_RELOJ ;Configuración del oscilador
-    CALL CONFIG_TMR0 ;Configuración del Timer 0
-    CALL CONFIG_INT_ENABLE ;Configuración de interrupciones
+    CALL CONFIG_RELOJ ;Configuraci?n del oscilador
+    CALL CONFIG_TMR0 ;Configuraci?n del Timer 0
+    CALL CONFIG_INT_ENABLE ;Configuraci?n de interrupciones
     CALL CONFIG_TMR2
     BANKSEL PORTA
     BANKSEL PORTD
 
  ;---------Loop principal----------------
  LOOP:
+    CALL LIMITES_MINUTOS_HORAS
+    CALL LIMITES_MESES_DIAS
+
     BTFSC PORTB, 0
     CALL ANTIREBOTE
 
-    MOVWF CONT_UNI_MIN, W
-    CALL TABLA
-    MOVWF UNO
-
-    MOVWF CONT_DECE_MIN, W
-    CALL TABLA
-    MOVWF DIEZ
-
-    MOVWF CONT_UNI_HOR, W
-    CALL TABLA
-    MOVWF CIEN
-
-    MOVWF CONT_DECE_HOR, W
-    CALL TABLA
-    MOVWF MIL
-
+    CALL CHECK_MODO
     GOTO LOOP
 
  ;---------------SUBRUTINAS------------------
  ;-----------------------------------------
- ; LÓGICA DE CONTADORES DE HORA
+ ; L?GICA DE CONTADORES DE HORA
  ;-----------------------------------------
+ LIMITES_MINUTOS_HORAS:
+    MOVF MINUTOS, W
+    WDIV1 10,DECE,UNI
 
+    MOVF HORAS, W
+    WDIV1 10,MILE,CEN
+
+    MOVF UNI, W
+    CALL TABLA
+    MOVWF UNI_TEMP
+
+    MOVF DECE, W
+    CALL TABLA
+    MOVWF DECE_TEMP
+
+    MOVF CEN, W
+    CALL TABLA
+    MOVWF CEN_TEMP
+
+    MOVF MILE, W
+    CALL TABLA
+    MOVWF MILE_TEMP
+    RETURN
+
+ ;-----------------------------------------
+ ; L?GICA DE CONTADORES DE FECHA
+ ;-----------------------------------------
+ LIMITES_MESES_DIAS:
+    MOVF DIAS, W
+    WDIV1 10,DECE1,UNI1
+
+    MOVF MESES, W
+    WDIV1 10,MILE1,CEN1
+
+    MOVF UNI1, W
+    CALL TABLA
+    MOVWF UNI_TEMP1
+
+    MOVF DECE1, W
+    CALL TABLA
+    MOVWF DECE_TEMP1
+
+    MOVF CEN1, W
+    CALL TABLA
+    MOVWF CEN_TEMP1
+
+    MOVF MILE1, W
+    CALL TABLA
+    MOVWF MILE_TEMP1
+    RETURN
  ;-----------------------------------------
  ; STATUS DE MODO
  ;-----------------------------------------
@@ -2892,42 +2855,50 @@ ENDM
     MOVWF OLD_STATUS_MODO
 
     BTFSC OLD_STATUS_MODO, 0
-    CALL HORA_DISPLAYS
+    BCF STATUS_MODO, 0
 
     BTFSS OLD_STATUS_MODO, 0
-    CALL FECHA_DISPLAYS
+    BSF STATUS_MODO, 0
 
     RETURN
 
- HORA_DISPLAYS:
-    BCF STATUS_MODO, 0
+ ;-----------------------------------------
+ ; CHECK MODO
+ ;-----------------------------------------
+ CHECK_MODO:
+    BTFSC STATUS_MODO, 0
+    CALL HORA_DISPLAYS
 
-    MOVF UNI_MIN, W
+    BTFSS STATUS_MODO, 0
+    CALL FECHA_DISPLAYS
+    RETURN
+
+ HORA_DISPLAYS:
+    MOVF UNI_TEMP, W
     MOVWF UNO
 
-    MOVF DECE_MIN, W
+    MOVF DECE_TEMP, W
     MOVWF DIEZ
 
-    MOVF UNI_HOR, W
+    MOVF CEN_TEMP, W
     MOVWF CIEN
 
-    MOVF DECE_HOR, W
+    MOVF MILE_TEMP, W
     MOVWF MIL
 
     RETURN
 
  FECHA_DISPLAYS:
-    BSF STATUS_MODO, 0
-    MOVLW 01110111B
+    MOVF UNI_TEMP1, W
     MOVWF UNO
 
-    MOVLW 00111001B
+    MOVF DECE_TEMP1, W
     MOVWF DIEZ
 
-    MOVLW 01111001B
+    MOVF CEN_TEMP1, W
     MOVWF CIEN
 
-    MOVLW 01011110B
+    MOVF MILE_TEMP1, W
     MOVWF MIL
 
     RETURN
@@ -2946,14 +2917,17 @@ ENDM
 
     BSF ((T2CON) and 07Fh), 1
     BSF ((T2CON) and 07Fh), 0 ;PRESCALER = 16
+    BANKSEL TRISB
+    MOVLW 122
+    MOVWF PR2
+    CLRF TMR2
     REINICIAR_TMR2
-
     RETURN
 
 
  CONFIG_INT_ENABLE:
     BANKSEL TRISA
-    BSF ((PIE1) and 07Fh), 1 ;INTERRUPCIÓN TMR2
+    BSF ((PIE1) and 07Fh), 1 ;INTERRUPCI?N TMR2
 
     BANKSEL PORTA
     BSF ((INTCON) and 07Fh), 5 ;HABILITAR TMR0
@@ -2961,7 +2935,7 @@ ENDM
 
     BCF ((PIR1) and 07Fh), 1 ;BANDERA DE TMR2
 
-    BSF ((INTCON) and 07Fh), 6 ;INTERRUPCIONES PERIFÉRICAS
+    BSF ((INTCON) and 07Fh), 6 ;INTERRUPCIONES PERIF?RICAS
     BSF ((INTCON) and 07Fh), 7 ;INTERRUPCIONES GLOBALES
     RETURN
 
