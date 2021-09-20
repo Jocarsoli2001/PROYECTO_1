@@ -2483,9 +2483,9 @@ ENDM
 ; MACROS
 ;-----------------------------------------
  REINICIAR_TMR1 MACRO
-    MOVLW 248 ;TIMER1 HIGH = 133
+    MOVLW 248 ;TIMER1 HIGH = 248
     MOVWF TMR1H
-    MOVLW 94 ;TIMER1 LOW = 163
+    MOVLW 94
     MOVWF TMR1L
     BCF ((PIR1) and 07Fh), 0
     ENDM
@@ -2672,7 +2672,8 @@ ENDM
 
  INC_MES:
     INCF MESES
-    CLRF DIAS
+    MOVLW 1
+    MOVWF DIAS
     RETURN
 
  REINICIO:
@@ -2903,13 +2904,19 @@ ENDM
     CALL LIMPIAR_CONT_UNI
 
     BTFSS OLD_STATUS_SET, 0
-    BSF STATUS_SET, 0
+    CALL RESUME
 
     RETURN
 
  LIMPIAR_CONT_UNI:
     BCF STATUS_SET, 0
     CLRF SEGUNDOS
+    BCF PORTC, 0
+    RETURN
+
+ RESUME:
+    BSF STATUS_SET, 0
+    BSF PORTC, 0
     RETURN
 
  ;-----------------------------------------

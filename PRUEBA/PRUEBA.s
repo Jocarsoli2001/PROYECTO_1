@@ -33,9 +33,9 @@ PROCESSOR 16F887
 ;		 MACROS
 ;-----------------------------------------  
  REINICIAR_TMR1 MACRO
-    MOVLW	248		;TIMER1 HIGH = 133
+    MOVLW	248		;TIMER1 HIGH = 248
     MOVWF	TMR1H
-    MOVLW	94		;TIMER1 LOW = 163
+    MOVLW	94		
     MOVWF	TMR1L
     BCF		TMR1IF
     ENDM
@@ -222,7 +222,8 @@ PROCESSOR 16F887
     
  INC_MES:
     INCF	MESES
-    CLRF	DIAS
+    MOVLW	1
+    MOVWF	DIAS
     RETURN   
  
  REINICIO:
@@ -453,13 +454,19 @@ PROCESSOR 16F887
     CALL	LIMPIAR_CONT_UNI
     
     BTFSS	OLD_STATUS_SET, 0
-    BSF		STATUS_SET, 0
+    CALL	RESUME
     
     RETURN
     
  LIMPIAR_CONT_UNI:
     BCF		STATUS_SET, 0
     CLRF	SEGUNDOS
+    BCF		PORTC, 0
+    RETURN
+    
+ RESUME:
+    BSF		STATUS_SET, 0
+    BSF		PORTC, 0
     RETURN
     
  ;-----------------------------------------
