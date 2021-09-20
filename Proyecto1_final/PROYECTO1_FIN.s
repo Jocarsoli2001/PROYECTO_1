@@ -7,7 +7,7 @@
 ; Hardware: Displays de 7 segmentos, LEDs y pushbuttons
     
 ; Creado: 14 de septiembre, 2021
-; Última modificación: 15 de septiembre, 2021
+; Última modificación: 19 de septiembre, 2021
     
 PROCESSOR 16F887
 #include <xc.inc>
@@ -33,7 +33,7 @@ PROCESSOR 16F887
 ;		 MACROS
 ;-----------------------------------------  
  REINICIAR_TMR1 MACRO
-    MOVLW	12		;TIMER1 HIGH = 248
+    MOVLW	12			    ;TIMER1 HIGH = 248
     MOVWF	TMR1H
     MOVLW	42		
     MOVWF	TMR1L
@@ -42,9 +42,9 @@ PROCESSOR 16F887
  
  REINICIAR_TMR0 MACRO
     BANKSEL	PORTD
-    MOVLW	100		; Timer 0 reinicia cada 5 ms
-    MOVWF	TMR0		; Mover este valor al timer 0
-    BCF		T0IF		; Limpiar la bandera del Timer 0
+    MOVLW	100			    ; Timer 0 reinicia cada 5 ms
+    MOVWF	TMR0			    ; Mover este valor al timer 0
+    BCF		T0IF			    ; Limpiar la bandera del Timer 0
     ENDM 
     
  REINICIAR_TMR2 MACRO
@@ -53,14 +53,14 @@ PROCESSOR 16F887
     ENDM
     
  WDIV1 MACRO	DIVISOR,COCIENTE,RESIDUO    ; Macro de divisor
-    MOVWF	CONTEO	    ; El dividendo se encuentra en W, pasar w a conteo
-    CLRF	CONTEO1  ; Limpiar la variable que est? sobre w
+    MOVWF	CONTEO			    ; El dividendo se encuentra en W, pasar w a conteo
+    CLRF	CONTEO1			    ; Limpiar la variable que est? sobre w
 	
-    INCF	CONTEO1    ; Aumentar conteo + 1
-    MOVLW	DIVISOR	    ; Pasar la litera del divisor a w
+    INCF	CONTEO1			    ; Aumentar conteo + 1
+    MOVLW	DIVISOR			    ; Pasar la litera del divisor a w
 	
-    SUBWF	CONTEO, F    ; Restar de w conteo, y guardarlo en conteo
-    BTFSC	STATUS,0    ; Si carry 0, decrementar conteo+1
+    SUBWF	CONTEO, F		    ; Restar de w conteo, y guardarlo en conteo
+    BTFSC	STATUS,0		    ; Si carry 0, decrementar conteo+1
     GOTO	$-4
 	
     DECF	CONTEO1, W

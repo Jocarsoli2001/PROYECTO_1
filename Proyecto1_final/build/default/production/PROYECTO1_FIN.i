@@ -1,6 +1,6 @@
-# 1 "PRUEBA.s"
+# 1 "PROYECTO1_FIN.s"
 # 1 "<built-in>" 1
-# 1 "PRUEBA.s" 2
+# 1 "PROYECTO1_FIN.s" 2
 ; Archivo: Proyecto 1
 ; Dispositivo: PIC16F887
 ; Autor: José Santizo
@@ -10,7 +10,7 @@
 ; Hardware: Displays de 7 segmentos, LEDs y pushbuttons
 
 ; Creado: 14 de septiembre, 2021
-; Última modificación: 15 de septiembre, 2021
+; Última modificación: 19 de septiembre, 2021
 
 PROCESSOR 16F887
 
@@ -2459,8 +2459,7 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.inc" 2 3
-# 13 "PRUEBA.s" 2
-
+# 14 "PROYECTO1_FIN.s" 2
 
 ;configuration word 1
  CONFIG FOSC=INTRC_NOCLKOUT

@@ -39,8 +39,8 @@ __Ludata_bank3 0 0 ABS 0
 udata_shr 70 71 COMMON 70 1
 udata_bank0 20 4E BANK0 20 1
 %locals
-build/default/production/PRUEBA.o
-PRUEBA.s
+build/default/production/PROYECTO1_FIN.o
+PROYECTO1_FIN.s
 130 0 0 CODE 0
 132 0 0 CODE 0
 133 2 0 CODE 0
