@@ -13,8 +13,8 @@
 %PSECTS
 $build/default/production/PRUEBA2.o
 resVect CODE 0 0 0 3 2
-CODE - 0 0 0 18D 2
-intVect CODE 0 0 0 5F 2
+CODE - 0 0 0 18F 2
+intVect CODE 0 0 0 79 2
 udata_bank0 BANK0 1 20 20 2C 1
 udata_shr COMMON 1 70 70 2 1
 config CONFIG 4 2007 2007 2 2
@@ -32,14 +32,14 @@ BANK0 4C-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 18D-1FFF 2
-ENTRY 18D-1FFF 2
+CONST 18F-1FFF 2
+ENTRY 18F-1FFF 2
 IDLOC 2000-2003 2
-CODE 18D-1FFF 2
+CODE 18F-1FFF 2
 COMMON 72-7F 1
 EEDATA 2100-21FF 2
-STRCODE 18D-1FFF 2
-STRING 18D-1FFF 2
+STRCODE 18F-1FFF 2
+STRING 18F-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -54,133 +54,135 @@ STRING 18D-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/production/PRUEBA2.o
-0 CODE ABS >259:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-100 CODE ABS >263:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-101 CODE ABS >264:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-102 CODE ABS >265:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-103 CODE ABS >266:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-104 CODE ABS >267:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-105 CODE ABS >268:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-106 CODE ABS >269:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-107 CODE ABS >270:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-108 CODE ABS >271:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-109 CODE ABS >272:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-10A CODE ABS >273:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-10B CODE ABS >274:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-10C CODE ABS >275:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-10D CODE ABS >276:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-10E CODE ABS >277:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-10F CODE ABS >278:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-110 CODE ABS >279:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-111 CODE ABS >282:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-112 CODE ABS >283:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-113 CODE ABS >284:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-114 CODE ABS >285:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-115 CODE ABS >286:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-116 CODE ABS >287:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-117 CODE ABS >288:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-118 CODE ABS >289:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-119 CODE ABS >290:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-11A CODE ABS >291:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-11B CODE ABS >292:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-11C CODE ABS >293:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-11D CODE ABS >294:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-11E CODE ABS >295:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-11F CODE ABS >296:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-120 CODE ABS >297:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-121 CODE ABS >298:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-122 CODE ABS >299:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-123 CODE ABS >300:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-124 CODE ABS >301:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-125 CODE ABS >305:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-126 CODE ABS >306:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-127 CODE ABS >307:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-128 CODE ABS >308:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-129 CODE ABS >309:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-12A CODE ABS >310:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-12B CODE ABS >311:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-12C CODE ABS >312:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-12D CODE ABS >313:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-12E CODE ABS >314:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-12F CODE ABS >315:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-131 CODE ABS >316:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-133 CODE ABS >322:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-134 CODE ABS >330:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-136 CODE ABS >331:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-137 CODE ABS >332:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-138 CODE ABS >333:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-139 CODE ABS >334:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-13A CODE ABS >336:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-13B CODE ABS >338:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-13C CODE ABS >339:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-13D CODE ABS >340:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-13F CODE ABS >341:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-140 CODE ABS >342:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-141 CODE ABS >343:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-142 CODE ABS >344:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-144 CODE ABS >344:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-145 CODE ABS >345:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-146 CODE ABS >348:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-148 CODE ABS >349:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-149 CODE ABS >350:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-14A CODE ABS >351:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-14B CODE ABS >352:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-14C CODE ABS >353:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-14D CODE ABS >354:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-14E CODE ABS >357:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-14F CODE ABS >357:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-150 CODE ABS >357:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-151 CODE ABS >357:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-152 CODE ABS >357:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-153 CODE ABS >358:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-154 CODE ABS >361:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-156 CODE ABS >362:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-157 CODE ABS >363:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-158 CODE ABS >365:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-15A CODE ABS >366:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-15B CODE ABS >367:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-15C CODE ABS >369:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-15D CODE ABS >370:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-15E CODE ABS >372:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-15F CODE ABS >373:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-160 CODE ABS >374:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-161 CODE ABS >378:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-163 CODE ABS >379:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-164 CODE ABS >380:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-165 CODE ABS >381:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-166 CODE ABS >382:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-167 CODE ABS >383:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-168 CODE ABS >384:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-16A CODE ABS >385:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-16C CODE ABS >385:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-16D CODE ABS >385:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-16E CODE ABS >385:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-16F CODE ABS >386:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-170 CODE ABS >389:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-172 CODE ABS >390:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-173 CODE ABS >391:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-174 CODE ABS >393:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-176 CODE ABS >394:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-177 CODE ABS >395:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-178 CODE ABS >396:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-179 CODE ABS >397:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-17A CODE ABS >399:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-17B CODE ABS >400:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-17C CODE ABS >401:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-17D CODE ABS >402:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-17E CODE ABS >403:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-17F CODE ABS >405:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-181 CODE ABS >406:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-182 CODE ABS >407:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-183 CODE ABS >408:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-184 CODE ABS >409:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-185 CODE ABS >410:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-186 CODE ABS >413:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-188 CODE ABS >414:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-189 CODE ABS >415:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-18A CODE ABS >416:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-18B CODE ABS >417:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-18C CODE ABS >418:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+0 CODE ABS >280:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+100 CODE ABS >284:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+101 CODE ABS >285:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+102 CODE ABS >286:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+103 CODE ABS >287:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+104 CODE ABS >288:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+105 CODE ABS >289:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+106 CODE ABS >290:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+107 CODE ABS >291:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+108 CODE ABS >292:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+109 CODE ABS >293:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+10A CODE ABS >294:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+10B CODE ABS >295:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+10C CODE ABS >296:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+10D CODE ABS >297:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+10E CODE ABS >298:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+10F CODE ABS >299:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+110 CODE ABS >300:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+111 CODE ABS >303:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+112 CODE ABS >304:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+113 CODE ABS >305:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+114 CODE ABS >306:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+115 CODE ABS >307:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+116 CODE ABS >308:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+117 CODE ABS >309:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+118 CODE ABS >310:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+119 CODE ABS >311:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+11A CODE ABS >312:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+11B CODE ABS >313:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+11C CODE ABS >314:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+11D CODE ABS >315:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+11E CODE ABS >316:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+11F CODE ABS >317:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+120 CODE ABS >318:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+121 CODE ABS >319:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+122 CODE ABS >320:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+123 CODE ABS >321:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+124 CODE ABS >322:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+125 CODE ABS >326:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+126 CODE ABS >327:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+127 CODE ABS >328:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+128 CODE ABS >329:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+129 CODE ABS >330:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+12A CODE ABS >331:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+12B CODE ABS >332:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+12C CODE ABS >333:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+12D CODE ABS >334:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+12E CODE ABS >335:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+12F CODE ABS >336:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+130 CODE ABS >337:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+131 CODE ABS >338:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+133 CODE ABS >339:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+135 CODE ABS >345:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+136 CODE ABS >353:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+138 CODE ABS >354:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+139 CODE ABS >355:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+13A CODE ABS >356:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+13B CODE ABS >357:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+13C CODE ABS >359:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+13D CODE ABS >361:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+13E CODE ABS >362:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+13F CODE ABS >363:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+141 CODE ABS >364:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+142 CODE ABS >365:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+143 CODE ABS >366:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+144 CODE ABS >367:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+146 CODE ABS >367:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+147 CODE ABS >368:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+148 CODE ABS >371:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+14A CODE ABS >372:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+14B CODE ABS >373:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+14C CODE ABS >374:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+14D CODE ABS >375:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+14E CODE ABS >376:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+14F CODE ABS >377:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+150 CODE ABS >380:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+151 CODE ABS >380:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+152 CODE ABS >380:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+153 CODE ABS >380:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+154 CODE ABS >380:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+155 CODE ABS >381:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+156 CODE ABS >384:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+158 CODE ABS >385:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+159 CODE ABS >386:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+15A CODE ABS >388:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+15C CODE ABS >389:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+15D CODE ABS >390:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+15E CODE ABS >392:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+15F CODE ABS >393:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+160 CODE ABS >395:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+161 CODE ABS >396:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+162 CODE ABS >397:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+163 CODE ABS >401:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+165 CODE ABS >402:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+166 CODE ABS >403:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+167 CODE ABS >404:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+168 CODE ABS >405:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+169 CODE ABS >406:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+16A CODE ABS >407:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+16C CODE ABS >408:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+16E CODE ABS >408:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+16F CODE ABS >408:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+170 CODE ABS >408:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+171 CODE ABS >409:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+172 CODE ABS >412:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+174 CODE ABS >413:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+175 CODE ABS >414:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+176 CODE ABS >416:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+178 CODE ABS >417:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+179 CODE ABS >418:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+17A CODE ABS >419:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+17B CODE ABS >420:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+17C CODE ABS >422:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+17D CODE ABS >423:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+17E CODE ABS >424:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+17F CODE ABS >425:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+180 CODE ABS >426:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+181 CODE ABS >428:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+183 CODE ABS >429:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+184 CODE ABS >430:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+185 CODE ABS >431:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+186 CODE ABS >432:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+187 CODE ABS >433:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+188 CODE ABS >436:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+18A CODE ABS >437:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+18B CODE ABS >438:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+18C CODE ABS >439:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+18D CODE ABS >440:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+18E CODE ABS >441:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 0 intVect CODE >135:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 4 intVect CODE >138:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 5 intVect CODE >139:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
@@ -206,71 +208,97 @@ F intVect CODE >154:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segund
 1A intVect CODE >168:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 1B intVect CODE >170:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 1C intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-1D intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-1E intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-1F intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-20 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-21 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-22 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-23 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-24 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-25 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-26 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-27 intVect CODE >171:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-28 intVect CODE >173:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-29 intVect CODE >174:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-2A intVect CODE >175:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-2B intVect CODE >177:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+1D intVect CODE >172:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+1E intVect CODE >173:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+1F intVect CODE >175:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+20 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+21 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+22 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+23 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+24 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+25 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+26 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+27 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+28 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+29 intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+2A intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+2B intVect CODE >176:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 2C intVect CODE >178:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 2D intVect CODE >179:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-2E intVect CODE >181:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-2F intVect CODE >184:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-30 intVect CODE >185:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-31 intVect CODE >186:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-32 intVect CODE >189:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-34 intVect CODE >189:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-35 intVect CODE >189:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-36 intVect CODE >189:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-37 intVect CODE >192:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-38 intVect CODE >193:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-39 intVect CODE >196:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-3A intVect CODE >197:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-3B intVect CODE >198:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-3C intVect CODE >199:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-3D intVect CODE >202:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-3E intVect CODE >203:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-3F intVect CODE >204:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-40 intVect CODE >205:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-41 intVect CODE >208:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-42 intVect CODE >209:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-43 intVect CODE >210:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-44 intVect CODE >211:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-45 intVect CODE >214:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-46 intVect CODE >215:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-47 intVect CODE >216:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-48 intVect CODE >217:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-49 intVect CODE >220:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-4A intVect CODE >221:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-4B intVect CODE >224:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-4C intVect CODE >225:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-4D intVect CODE >226:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-4E intVect CODE >227:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-4F intVect CODE >229:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-50 intVect CODE >232:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-51 intVect CODE >233:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-52 intVect CODE >234:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-53 intVect CODE >237:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-54 intVect CODE >238:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-55 intVect CODE >239:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-56 intVect CODE >242:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-57 intVect CODE >243:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-58 intVect CODE >244:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-59 intVect CODE >247:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-5A intVect CODE >248:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-5B intVect CODE >249:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-5C intVect CODE >252:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-5D intVect CODE >253:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
-5E intVect CODE >254:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+2E intVect CODE >180:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+2F intVect CODE >182:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+30 intVect CODE >183:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+31 intVect CODE >184:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+32 intVect CODE >186:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+33 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+34 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+35 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+36 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+37 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+38 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+39 intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+3A intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+3B intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+3C intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+3D intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+3E intVect CODE >187:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+3F intVect CODE >189:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+40 intVect CODE >190:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+41 intVect CODE >191:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+42 intVect CODE >193:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+43 intVect CODE >194:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+44 intVect CODE >195:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+45 intVect CODE >197:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+46 intVect CODE >200:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+47 intVect CODE >201:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+48 intVect CODE >202:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+49 intVect CODE >205:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+4A intVect CODE >206:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+4B intVect CODE >207:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+4C intVect CODE >210:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+4E intVect CODE >210:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+4F intVect CODE >210:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+50 intVect CODE >210:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+51 intVect CODE >213:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+52 intVect CODE >214:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+53 intVect CODE >217:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+54 intVect CODE >218:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+55 intVect CODE >219:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+56 intVect CODE >220:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+57 intVect CODE >223:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+58 intVect CODE >224:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+59 intVect CODE >225:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+5A intVect CODE >226:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+5B intVect CODE >229:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+5C intVect CODE >230:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+5D intVect CODE >231:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+5E intVect CODE >232:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+5F intVect CODE >235:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+60 intVect CODE >236:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+61 intVect CODE >237:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+62 intVect CODE >238:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+63 intVect CODE >241:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+64 intVect CODE >242:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+65 intVect CODE >245:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+66 intVect CODE >246:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+67 intVect CODE >247:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+68 intVect CODE >248:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+69 intVect CODE >250:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+6A intVect CODE >253:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+6B intVect CODE >254:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+6C intVect CODE >255:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+6D intVect CODE >258:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+6E intVect CODE >259:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+6F intVect CODE >260:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+70 intVect CODE >263:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+71 intVect CODE >264:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+72 intVect CODE >265:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+73 intVect CODE >268:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+74 intVect CODE >269:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+75 intVect CODE >270:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+76 intVect CODE >273:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+77 intVect CODE >274:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
+78 intVect CODE >275:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 0 resVect CODE >128:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 0 resVect CODE >130:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
 2 resVect CODE >131:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segundo Semestre\Programación de Microcontroladores\Proyectos\Proyecto_1\PRUEBA 2\PRUEBA2.s
@@ -286,7 +314,7 @@ F intVect CODE >154:D:\Archivos\Documentos\Universidad y colegio\UVG\2021\Segund
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 18D 0 ABS 0 - -
+__Hspace_0 18F 0 ABS 0 - -
 __Hspace_1 72 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
@@ -300,7 +328,7 @@ __Hudata 0 0 ABS 0 udata -
 __Hconfig 4012 0 CONFIG 4 config -
 __Ledata 0 0 ABS 0 edata -
 __Ludata 0 0 ABS 0 udata -
-__HCODE 31A 0 ABS 0 CODE -
+__HCODE 31E 0 ABS 0 CODE -
 __Hcode 0 0 ABS 0 code -
 __Hdata 0 0 ABS 0 data -
 __LCODE 0 0 ABS 0 CODE -

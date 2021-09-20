@@ -156,7 +156,7 @@ PROCESSOR 16F887
  ;------------Sub rutinas de interrupci?n--------------
  CONTADORES_HORA:
     REINICIAR_TMR2			    
-    INCF	MESES
+    INCF	DIAS
     
     MOVF	MESES,W
     SUBLW	13
@@ -165,7 +165,12 @@ PROCESSOR 16F887
     
     MOVF	MESES, W
     CALL	TABLA_FECHA
-    MOVWF	DIAS
+    MOVWF	AND1
+    
+    MOVF	DIAS, W
+    SUBWF	AND1, W
+    BTFSC	STATUS, 2
+    CALL	INC1
     
     MOVF	DIAS, W
     WDIV1	10,DECE,UNI
@@ -178,11 +183,27 @@ PROCESSOR 16F887
     CALL	TABLA
     MOVWF	UNO
     
+    MOVF	MESES, W
+    WDIV1	10,DECE1,UNI1
+    
+    MOVF	DECE1, W
+    CALL	TABLA
+    MOVWF	MIL
+    
+    MOVF	UNI1, W
+    CALL	TABLA
+    MOVWF	CIEN
+    
     RETURN
  
  INC:
     MOVLW	1
     MOVWF	MESES
+    RETURN
+    
+ INC1:
+    INCF	MESES
+    CLRF	DIAS
     RETURN
     
  INT_TMR0:
@@ -302,6 +323,8 @@ PROCESSOR 16F887
     
  ;-----------Configuraci?n----------------
  MAIN:
+    MOVLW	1
+    MOVWF	MESES
     BSF		STATUS_MODO, 0		    ;CONFIGURAR EL STATUS MODO EN 1
     BCF		STATUS_SET, 0		    ;CONFIGURAR EL STATUS SET EN 1
     BCF		STATUS_SEL, 0
