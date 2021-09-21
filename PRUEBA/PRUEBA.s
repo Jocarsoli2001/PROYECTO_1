@@ -15,8 +15,8 @@ PROCESSOR 16F887
 ;configuration word 1
  CONFIG FOSC=INTRC_NOCLKOUT // Oscilador interno sin salidas
  CONFIG WDTE=OFF            // WDT desabilitado (reinicio repetitiv del PIC)
- CONFIG PWRTE=OFF            // PWRTE habilitado (espera de 72 ms al iniciar)
- CONFIG MCLRE=OFF           // El pin de MCLR se utiliza como prendido o apagado
+ CONFIG PWRTE=ON            // PWRTE habilitado (espera de 72 ms al iniciar)
+ CONFIG MCLRE=ON           // El pin de MCLR se utiliza como prendido o apagado
  CONFIG CP=OFF              // Sin protecci?n de c?digo
  CONFIG CPD=OFF		    // Sin protecci?n de datos 
  
