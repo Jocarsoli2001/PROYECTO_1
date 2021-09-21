@@ -63,7 +63,7 @@ PROCESSOR 16F887
     BTFSC	STATUS,0		    ; Si se prende el bit de carry, se decrementa conteo en 1
     GOTO	$-4
 	
-    DECF	CONTEO1, W
+    DECF	CONTEO1, W		    
     MOVWF	COCIENTE		    ; Mover 1 de los dígitos a cociente
 	
     MOVLW	DIVISOR			    
